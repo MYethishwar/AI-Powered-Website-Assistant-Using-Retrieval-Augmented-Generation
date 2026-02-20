@@ -153,7 +153,8 @@ venv.bak/
 
 # mkdocs documentation
 /site
-
+.gradio
+.idea
 # mypy
 .mypy_cache/
 .dmypy.json

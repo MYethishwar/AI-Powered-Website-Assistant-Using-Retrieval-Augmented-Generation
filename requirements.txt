@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+openai
+qdrant-client
+langchain-text-splitters
+playwright
+beautifulsoup4
+python-dotenv
+qdrant-client
