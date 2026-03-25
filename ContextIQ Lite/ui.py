@@ -17,9 +17,9 @@ def ask_backend(message, history):
 
     return answer
 
-with gr.Blocks(title="Intellentx AI Assistant") as demo:
-    gr.Markdown("# IntellentX AI Assistant")
-    gr.Markdown("#Ask Anything about Intellentx")
+with gr.Blocks(title="ContextIQ  -> AI-Powered Website Assistant") as demo:
+    gr.Markdown("ContextIQ")
+    gr.Markdown("#Ask Anything about the Website you provided...")
 
     gr.ChatInterface(
         fn=ask_backend

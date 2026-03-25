@@ -5,7 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
-OPENAI_KEY = os.getenv("OPENAI_KEY")
+OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 
 # This reads your API from .env and creates openAI client
 client = OpenAI(api_key = OPENAI_KEY)
@@ -18,10 +18,12 @@ qdrant = QdrantClient(
 COLLECTION = "intellentx_docs"  # Here documents embedding are stored
 
 def create_collection():
-    qdrant.recreate_collection(
+    qdrant.delete_collection(collection_name=COLLECTION)  # safe to call even if not exists
+    qdrant.create_collection(
         collection_name=COLLECTION,
-        vectors_config = VectorParams(size = 3072, distance=Distance.COSINE)
+        vectors_config=VectorParams(size=3072, distance=Distance.COSINE)
     )
+
 
 def embed_and_store(chunks: list[str]):
     vectors  = client.embeddings.create(

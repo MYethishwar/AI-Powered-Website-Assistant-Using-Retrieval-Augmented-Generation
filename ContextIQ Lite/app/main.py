@@ -24,4 +24,4 @@ def ask(q: str):
         answer = answer_query(q)
         return {"query": q, "answer": answer}
     except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))
